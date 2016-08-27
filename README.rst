@@ -15,6 +15,8 @@ Status
 .. image:: https://img.shields.io/pypi/v/django-rangepaginator.svg
     :target: https://pypi.python.org/pypi/django-rangepaginator/
 
+.. image:: docs/_static/example.png
+
 Installation
 ============
 
