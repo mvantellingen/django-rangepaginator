@@ -1,25 +1,40 @@
-def calculate_pages(current, total, distance=2):
-    lower_bound = max(1, current - distance)
-    upper_bound = min(total, current + distance)
+def calculate_pages(current, total, distance=2, edge=1):
+    center = min(max(distance + 1, current), total - distance)
+    add_skip_start = add_skip_end = False
+    pages = set()
 
-    items = []
-    if lower_bound > 1:
-        items.append(1)
+    # Add the page numbers on the start
+    for i in range(1, edge + 1):
+        pages.add(i)
 
-    if lower_bound > 3:
-        items.append(None)
-    elif lower_bound > 2:
-        items.append(2)
+    # Add range of the current page
+    for i in range(max(1, center - distance), min(center + distance + 1, total)):
+        pages.add(i)
 
-    for item in range(lower_bound, upper_bound + 1):
-        items.append(item)
+    # Add page numbers on the end
+    for i in range(total + 1 - edge, total + 1):
+        pages.add(i)
 
-    if upper_bound + 2 < total:
-        items.append(None)
-    elif upper_bound + 1 < total:
-        items.append(total - 1)
+    # Check if we need to insert a 'skip' or can just fill in the number. Do
+    # this for both the start and the end
+    if center - distance > edge:
+        if edge + 2 in pages:
+            pages.add(edge + 1)
+        else:
+            add_skip_start = True
 
-    if upper_bound < total:
-        items.append(total)
+    if center + distance < total - edge:
+        if center + distance + 2 in pages:
+            pages.add(center + distance + 1)
+        else:
+            add_skip_end = True
 
-    return items
+    pages = sorted(pages)
+
+    # Insert the skip items
+    if add_skip_start:
+        pages.insert(edge, None)
+    if add_skip_end:
+        pages.insert(0 - edge, None)
+
+    return pages

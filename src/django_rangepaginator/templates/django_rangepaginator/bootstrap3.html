@@ -1,15 +1,25 @@
+{% load i18n %}
+{% spaceless %}
 <nav aria-label="...">
-    <ul class="pagination pagination-sm">
+    <ul class="pagination{% if extra_class %} {{ extra_class }}{% endif %}">
         {% if page.has_previous %}
         <li>
             <a href="{{ prev_page_url }}">
+            {% if text_labels %}
+                <span>{% trans "Previous" %}</span>
+            {% else %}
                 <span aria-hidden="true">&laquo;</span>
+            {% endif %}
             </a>
         </li>
         {% else %}
         <li class="disabled">
             <span>
+            {% if text_labels %}
+                {% trans "Previous" %}
+            {% else %}
                 <span aria-hidden="true">&laquo;</span>
+            {% endif %}
             </span>
         </li>
         {% endif %}
@@ -32,15 +42,24 @@
         {% if page.has_next %}
         <li>
             <a href="{{ next_page_url }}">
+            {% if text_labels %}
+                {% trans "Next" %}
+            {% else %}
                 <span aria-hidden="true">&raquo;</span>
+            {% endif %}
             </a>
         </li>
         {% else %}
         <li class="disabled">
             <span>
+            {% if text_labels %}
+                {% trans "Next" %}
+            {% else %}
                 <span aria-hidden="true">&raquo;</span>
+            {% endif %}
             </span>
         </li>
         {% endif %}
     </ul>
 </nav>
+{% endspaceless %}

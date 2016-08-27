@@ -7,10 +7,11 @@ register = template.Library()
 
 
 @register.inclusion_tag('django_rangepaginator/bootstrap3.html')
-def paginate(page=None, distance=2, request=None):
+def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
+             text_labels=True):
     paginator = page.paginator
     pages = calculate_pages(
-        page.number, paginator.num_pages, distance=distance)
+        page.number, paginator.num_pages, distance=distance, edge=edge)
 
     prev_page_url = next_page_url = None
     result = []
@@ -60,4 +61,6 @@ def paginate(page=None, distance=2, request=None):
         'paginator': paginator,
         'next_page_url': next_page_url,
         'prev_page_url': prev_page_url,
+        'extra_class': extra_class,
+        'text_labels': text_labels,
     }
