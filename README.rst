@@ -25,4 +25,7 @@ Installation
 Usage
 =====
 
-Not yet!
+.. code-block:: django
+
+    {% load rangepaginator %}
+    {% paginate page request=request %}

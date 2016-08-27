@@ -1,0 +1,29 @@
+<nav aria-label="...">
+    <ul class="pagination pagination-sm">
+        <li class="disabled">
+            <span>
+                <span aria-hidden="true">&laquo;</span>
+            </span>
+        </li>
+        {% for page_num, url in pages %}
+            {% if page_num == current %}
+            <li class="active">
+                <span>{{ page_num }}<span class="sr-only">(current)</span></span>
+            </li>
+            {% elif page_num %}
+            <li>
+                <a href="{{ url }}">{{ page_num }}</a>
+            </li>
+            {% else %}
+            <li class="disabled skip">
+                <span>&#8230;</span>
+            </li>
+        {% endif %}
+        {% endfor %}
+        <li class="disabled">
+            <span>
+                <span aria-hidden="true">&raquo;</span>
+            </span>
+        </li>
+    </ul>
+</nav>

@@ -1,5 +1,10 @@
 from setuptools import find_packages, setup
 
+install_requires = [
+    'Django>=1.7',
+    'six>=1.1',
+]
+
 docs_require = [
     'sphinx>=1.4.0',
 ]
@@ -25,10 +30,7 @@ setup(
     url='https://github.com/mvantellingen/django-rangepaginator',
     author="Michael van Tellingen",
     author_email="michaelvantellingen@gmail.com",
-    install_requires=[
-        'Django>=1.7',
-        'six>=1.1',
-    ],
+    install_requires=install_requires,
     tests_require=tests_require,
     extras_require={
         'docs': docs_require,
