@@ -26,10 +26,9 @@ Installation
 .. code-block:: shell
 
    pip install django_rangepaginator
-   
+
 Usage
 =====
-
 .. code-block:: django
 
     {% load rangepaginator %}
@@ -37,20 +36,19 @@ Usage
 
 The following options are available:
 
- - distance: number of pages around current active one (default = 2)
- - edge: number of pages at the start and end (default = 1)
- - extra_class: add extra css classes to the pagination div (default = '')
- - text_labels: use strings for previous/next instead of symbols (default = True)
+- distance: number of pages around current active one (default = 2) 
+- edge: number of pages at the start and end (default = 1)
+- extra_class: add extra css classes to the pagination div (default = '')
+- text_labels: use strings for previous/next instead of symbols (default = True)
  
 Demo
 ====
+A sandbox environment is available in the repository, run the following:
  
- A sandbox environment is available in the repository, run the following:
- 
- .. code-block:: shell
+.. code-block:: shell
    
-    ./sandbox/manage.py migrate
-    ./sandbox/manage.py runserver
+   ./sandbox/manage.py migrate
+   ./sandbox/manage.py runserver
 
 Bugs/features
 =============
