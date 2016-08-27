@@ -42,8 +42,8 @@ The following options are available:
  - extra_class: add extra css classes to the pagination div (default = '')
  - text_labels: use strings for previous/next instead of symbols (default = True)
  
- Demo
- ====
+Demo
+====
  
  A sandbox environment is available in the repository, run the following:
  
