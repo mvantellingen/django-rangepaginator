@@ -1,10 +1,18 @@
 <nav aria-label="...">
     <ul class="pagination pagination-sm">
+        {% if page.has_previous %}
+        <li>
+            <a href="{{ prev_page_url }}">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        {% else %}
         <li class="disabled">
             <span>
                 <span aria-hidden="true">&laquo;</span>
             </span>
         </li>
+        {% endif %}
         {% for page_num, url in pages %}
             {% if page_num == current %}
             <li class="active">
@@ -20,10 +28,19 @@
             </li>
         {% endif %}
         {% endfor %}
+
+        {% if page.has_next %}
+        <li>
+            <a href="{{ next_page_url }}">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        {% else %}
         <li class="disabled">
             <span>
                 <span aria-hidden="true">&raquo;</span>
             </span>
         </li>
+        {% endif %}
     </ul>
 </nav>
