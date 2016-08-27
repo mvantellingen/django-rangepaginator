@@ -24,7 +24,7 @@ tests_require = [
 
 setup(
     name='django-rangepaginator',
-    version='0.0.1',
+    version='0.1.0',
     description="Nice paginator for Django",
     long_description=open('README.rst', 'r').read(),
     url='https://github.com/mvantellingen/django-rangepaginator',
