@@ -2,7 +2,7 @@
 django-rangepaginator
 =====================
 
-Simple Django app to create a paginator which shows x number of pages around the active one.
+This Django app provides a templatetag to render pagination widgets which include a range of pages around the current active one.
 
 .. image:: docs/_static/example.png?stop-caching-me
 
@@ -34,3 +34,27 @@ Usage
 
     {% load rangepaginator %}
     {% paginate page request=request %}
+
+The following options are available:
+
+ - distance: number of pages around current active one (default = 2)
+ - edge: number of pages at the start and end (default = 1)
+ - extra_class: add extra css classes to the pagination div (default = '')
+ - text_labels: use strings for previous/next instead of symbols (default = True)
+ 
+ Demo
+ ====
+ 
+ A sandbox environment is available in the repository, run the following:
+ 
+ .. code-block:: shell
+   
+    ./sandbox/manage.py migrate
+    ./sandbox/manage.py runserver
+
+Bugs/features
+=============
+
+Let me know! :-)
+    
+   
