@@ -1,22 +1,55 @@
-.. django-range-paginator documentation master file, created by
-   sphinx-quickstart on Sat Aug 27 19:39:59 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+======================
+Django Range Paginator
+======================
 
-Welcome to django-range-paginator's documentation!
-==================================================
+This Django app provides a templatetag to render pagination widgets which
+include a range of pages around the current active one.
 
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. image:: /_static/example.png
 
 
+Installation
+============
 
-Indices and tables
-==================
+.. code-block:: shell
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   pip install django_rangepaginator
 
+
+Update your Django settings:
+
+.. code-block:: python
+
+
+    INSTALLED_APPS += [
+        'django_rangepaginator'
+    ]
+
+
+Usage
+=====
+.. code-block:: django
+
+    {% load rangepaginator %}
+    {% paginate page distance=2 edge=2 request=request %}
+
+The following options are available:
+
+- distance: number of pages around current active one (default = 2) 
+- edge: number of pages at the start and end (default = 1)
+- extra_class: add extra css classes to the pagination div (default = '')
+- text_labels: use strings for previous/next instead of symbols (default = True)
+ 
+Demo
+====
+A sandbox environment is available in the repository, run the following:
+ 
+.. code-block:: shell
+   
+   ./sandbox/manage.py migrate
+   ./sandbox/manage.py runserver
+
+Bugs/features
+=============
+
+Let me know! :-)

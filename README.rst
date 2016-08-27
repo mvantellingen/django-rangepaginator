@@ -18,14 +18,22 @@ Status
     :target: https://pypi.python.org/pypi/django-rangepaginator/
 
 
-
-
 Installation
 ============
 
 .. code-block:: shell
 
    pip install django_rangepaginator
+
+Update your Django settings:
+
+.. code-block:: python
+
+
+    INSTALLED_APPS += [
+        'django_rangepaginator'
+    ]
+
 
 Usage
 =====
