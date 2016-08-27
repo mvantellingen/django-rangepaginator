@@ -2,7 +2,9 @@
 django-rangepaginator
 =====================
 
-Simple Django app to create sane paginators
+Simple Django app to create a paginator which shows x number of pages around the active one.
+
+.. image:: docs/_static/example.png?stop-caching-me
 
 Status
 ======
@@ -15,7 +17,8 @@ Status
 .. image:: https://img.shields.io/pypi/v/django-rangepaginator.svg
     :target: https://pypi.python.org/pypi/django-rangepaginator/
 
-.. image:: docs/_static/example.png
+
+
 
 Installation
 ============
