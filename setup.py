@@ -10,21 +10,21 @@ docs_require = [
 ]
 
 tests_require = [
-    'pytest==3.0.0',
-    'pytest-cov>=2.1.0',
+    'pytest==3.0.1',
+    'pytest-cov==2.3.1',
     'pytest-django==3.0.0',
     'pytest-sugar==0.7.1',
 
     # Linting
     'isort==4.2.5',
-    'flake8==3.0.3',
+    'flake8==3.0.4',
     'flake8-blind-except==0.1.1',
     'flake8-debugger==1.4.0',
 ]
 
 setup(
     name='django-rangepaginator',
-    version='0.2.0',
+    version='1.0.0',
     description="Nice paginator for Django",
     long_description=open('README.rst', 'r').read(),
     url='https://github.com/mvantellingen/django-rangepaginator',
@@ -43,7 +43,7 @@ setup(
     include_package_data=True,
     license='MIT',
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 1.8',
