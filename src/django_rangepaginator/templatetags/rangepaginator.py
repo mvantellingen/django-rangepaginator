@@ -5,7 +5,12 @@ from six.moves.urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
 register = template.Library()
 
-
+def encoded_dict(in_dict):
+    out_dict = {}
+    for k, v in in_dict.iteritems():
+        out_dict[k] = unicode(v).encode('utf-8')
+    return out_dict
+    
 @register.inclusion_tag('django_rangepaginator/bootstrap3.html')
 def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
              text_labels=True):
@@ -17,7 +22,7 @@ def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
     result = []
     if request:
         parts = urlparse(request.get_full_path())
-        params = parse_qs(parts.query)
+        params = encoded_dict(parse_qs(parts.query))
         for page_num in pages:
             if not page_num:
                 result.append((page_num, None))
