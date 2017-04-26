@@ -7,7 +7,7 @@ register = template.Library()
 
 def encoded_dict(in_dict):
     out_dict = {}
-    for k, v in in_dict.iteritems():
+    for k, v in in_dict.items():
         if isinstance(v, list):
             out_dict[k] = [unicode(t).encode('utf-8') for t in v]
         else:
