@@ -8,7 +8,10 @@ register = template.Library()
 def encoded_dict(in_dict):
     out_dict = {}
     for k, v in in_dict.iteritems():
-        out_dict[k] = unicode(v).encode('utf-8')
+        if isinstance(v, list):
+            out_dict[k] = [unicode(t).encode('utf-8') for t in v]
+        else:
+            out_dict[k] = unicode(v).encode('utf-8')
     return out_dict
     
 @register.inclusion_tag('django_rangepaginator/bootstrap3.html')
