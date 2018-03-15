@@ -1,10 +1,26 @@
 from django import template
 
 from django_rangepaginator.layout import calculate_pages
-from six.moves.urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+
 
 register = template.Library()
 
+try:
+    # Python 3.
+    from urllib.parse import parse_qs
+    from urllib import urlencode, quote_plus
+except ImportError:
+    # Python 2.5+
+    from urlparse import urlparse
+
+    try:
+        # Python 2.6+
+        from urlparse import parse_qs
+        from urlparse import urlunparse
+        from urllib import urlencode, quote_plus
+    except ImportError:
+        # Python <=2.5
+        from cgi import parse_qs
 
 @register.inclusion_tag('django_rangepaginator/bootstrap3.html')
 def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
@@ -15,9 +31,11 @@ def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
 
     prev_page_url = next_page_url = None
     result = []
+
     if request:
         parts = urlparse(request.get_full_path())
-        params = parse_qs(parts.query)
+        params = parse_qs(parts.query.encode('ASCII'))
+        print "params", params
         for page_num in pages:
             if not page_num:
                 result.append((page_num, None))
