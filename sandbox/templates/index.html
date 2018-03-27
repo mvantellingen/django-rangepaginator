@@ -2,54 +2,16 @@
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
 
     <body>
         <div class="container">
-            <h1>django-rangepaginator</h1>
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=1 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=1 edge=1 %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=1 edge=2 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=1 edge=2 %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=2 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=2 edge=1 %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=2 edge=2 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=2 edge=2 %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=2 edge=3 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=2 edge=3 %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=3 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=3 edge=1 %}
-            <hr>
-
-            <strong>{% verbatim %}{% paginate page distance=2 edge=1 extra_class="pagination-sm" %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=3 edge=1 extra_class="pagination-sm" %}
-
-            <hr>
-            <strong>{% verbatim %}{% paginate page distance=1 edge=2 text_labels=False %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
-            {% paginate page request=request distance=1 edge=2 text_labels=False %}
-
-          </div>
+            <h1>Bootstrap 3</h1>
+            <a href="{% url 'bootstrap3' %}">View examples</a>
+            <br><br>
+            <h1>Bootstrap 4</h1>
+            <a href="{% url 'bootstrap4' %}">View examples</a>
         </div>
     </body>
 </html>

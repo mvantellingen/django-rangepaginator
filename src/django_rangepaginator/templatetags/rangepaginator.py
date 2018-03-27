@@ -1,12 +1,16 @@
 from django import template
 
-from django_rangepaginator.layout import calculate_pages
+from django.conf import settings
+from django.template import loader
 from six.moves.urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+
+from django_rangepaginator.layout import calculate_pages
 
 register = template.Library()
 
 
-@register.inclusion_tag('django_rangepaginator/bootstrap3.html')
+
+@register.simple_tag
 def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
              text_labels=True):
     paginator = page.paginator
@@ -54,7 +58,7 @@ def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
 
     pages = result
 
-    return {
+    context = {
         'current': page.number,
         'page': page,
         'pages': pages,
@@ -64,3 +68,9 @@ def paginate(page=None, request=None, distance=2, edge=1, extra_class='',
         'extra_class': extra_class,
         'text_labels': text_labels,
     }
+
+    template_name = getattr(
+        settings, 'RANGE_PAGINATOR_TEMPLATE',
+        'django_rangepaginator/bootstrap3.html')
+    template = loader.get_template(template_name)
+    return template.render(context)
