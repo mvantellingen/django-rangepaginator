@@ -9,45 +9,44 @@
         <div class="container">
             <a href="/">&laquo; Index</a>
             <h1>django-rangepaginator</h1>
+            {% load rangepaginator %}
+
+            <h1>Metadata</h1>
+            <strong>{% verbatim %}{% paginate_links page request %}{% endverbatim %}</strong>
+            {% paginate_links page request as link_html %}
+
+            <pre>{{ link_html|force_escape }}</pre>
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=1 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=1 edge=1 %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=1 edge=2 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=1 edge=2 %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=2 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=2 edge=1 %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=2 edge=2 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=2 edge=2 %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=2 edge=3 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=2 edge=3 %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=3 edge=1 %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=3 edge=1 %}
             <hr>
 
             <strong>{% verbatim %}{% paginate page distance=2 edge=1 extra_class="pagination-sm" %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=3 edge=1 extra_class="pagination-sm" %}
 
             <hr>
             <strong>{% verbatim %}{% paginate page distance=1 edge=2 text_labels=False %}{% endverbatim %}</strong>
-            {% load rangepaginator %}
             {% paginate page request=request distance=1 edge=2 text_labels=False %}
 
           </div>

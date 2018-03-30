@@ -1,3 +1,10 @@
+1.2.0 (2018-03-30)
+==================
+ - Add ``{% paginate_links page request with_canonical=True %}`` to render
+   the link rel prev/next links and optionally the canonical rel.
+ - Use the furl module to remove some code
+
+
 1.1.0 (2018-03-27)
 ==================
  - Add bootstrap4 template support

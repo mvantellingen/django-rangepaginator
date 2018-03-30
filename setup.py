@@ -2,6 +2,7 @@ from setuptools import find_packages, setup
 
 install_requires = [
     'Django>=1.7',
+    'furl>=1.0',
     'six>=1.1',
 ]
 
@@ -24,7 +25,7 @@ tests_require = [
 
 setup(
     name='django-rangepaginator',
-    version='1.1.0',
+    version='1.2.0',
     description="Nice paginator for Django",
     long_description=open('README.rst', 'r').read(),
     url='https://github.com/mvantellingen/django-rangepaginator',
