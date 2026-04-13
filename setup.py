@@ -11,7 +11,7 @@ docs_require = [
 ]
 
 tests_require = [
-    'pytest==3.0.1',
+    'pytest==9.0.3',
     'pytest-cov==2.3.1',
     'pytest-django==3.0.0',
     'pytest-sugar==0.7.1',
